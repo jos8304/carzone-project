@@ -1,0 +1,30 @@
+{% extends "admin/base.html" %} {% load static %} {% block branding %}
+<h1 id="head">
+  <img
+    src="{% static 'img/logos/black-logo.png' %}"
+    alt=""
+    class="brand_img"
+    height="50"
+    width="300"
+  />
+</h1>
+{% endblock %} {% block extrastyle %}
+
+<style>
+  #head {
+    margin-left: 10px;
+  }
+  .brand_img {
+    margin-top: 10px;
+  }
+</style>
+{% endblock %} {% block nav_global %} {% endblock %} {% block nav_sidebar %}
+<style>
+  #head {
+    margin-left: 10px;
+  }
+  .brand_img {
+    margin-top: 10px;
+  }
+</style>
+{% endblock %}

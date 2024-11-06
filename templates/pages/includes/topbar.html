@@ -19,16 +19,37 @@
       </div>
       <div class="col-lg-4 col-md-4 col-sm-5">
         <ul class="top-social-media pull-right">
+          {% if user.is_authenticated %}
           <li>
-            <a href="login.html" class="sign-in"
+            <a href="javascript:{ document.getElementById('logout').submit()}" class="sign-out"><i class="fa fa-sign-out"></i> Logout</a >
+                <form id="logout" method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
+                    <input type="hidden" value="Logout">
+                      </form>
+
+          </li>        
+          {% else %}
+          <li>
+            <a href="{% url "login" %}" class="sign-in"
               ><i class="fa fa-sign-in"></i> Login</a
             >
           </li>
+          {% endif %}
+          {% if user.is_authenticated %}
           <li>
-            <a href="signup.html" class="sign-in"
-              ><i class="fa fa-user"></i> Register</a
-            >
-          </li>
+            <a href="{% url "dashboard" %}" class="sign-in"><i class="fa fa-user"></i> Dashboard</a >
+                </li>
+               {% else %} 
+               <li>
+                <a href="{% url "register" %}" class="sign-in"
+                  ><i class="fa fa-user"></i> Register</a
+                >
+              </li>
+               
+               {% endif %}
+
+
+          
         </ul>
       </div>
     </div>
